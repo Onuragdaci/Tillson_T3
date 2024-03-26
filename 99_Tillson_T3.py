@@ -67,7 +67,7 @@ for i in range(0,len(Hisseler)):
 
         Buy=False
         Sell=False
-        Signals = Tillson.tail(1)
+        Signals = Tillson.tail(2)
         Signals = Signals.reset_index()
         Buy = Signals.loc[0, 'Entry']==True and Signals.loc[1, 'Entry']==False
         Sell = Signals.loc[0, 'Exit']== True and Signals.loc[1, 'Exit']== False 
