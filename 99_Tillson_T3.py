@@ -1,6 +1,8 @@
+!pip install yfinance
 !pip install vectorbt
 !pip install pandas_ta
 !pip install mplcyberpunk
+
 import pandas as pd
 import pandas_ta as ta
 import ssl
@@ -64,10 +66,6 @@ for i in range(0,len(Hisseler)):
         pf = vbt.Portfolio.from_signals(Tillson['Adj Close'], entries=Tillson['Entry'], exits=Tillson['Exit'],**psettings)
         Stats=pf.stats()
 
-        Buy=False
-        Sell=False
-        Signals = Tillson.tail(1)
-        Signals = Signals.reset_index()
         Buy=False
         Sell=False
         Signals = Tillson.tail(1)
