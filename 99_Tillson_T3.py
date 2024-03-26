@@ -1,4 +1,6 @@
-#!pip install yfinance yapılmalı
+!pip install vectorbt
+!pip install pandas_ta
+!pip install mplcyberpunk
 import pandas as pd
 import pandas_ta as ta
 import ssl
