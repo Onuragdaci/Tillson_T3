@@ -56,7 +56,6 @@ Titles=['Hisse Adı','Kazanma Oranı[%]','Sharpe Oranı','Ort. Kazanma Oranı [%
 df_signals=pd.DataFrame(columns=Titles)
 
 for i in range(0,len(Hisseler)):
-    print(Hisseler[i])
     try:
         L=8
         v = 0.7
@@ -70,8 +69,8 @@ for i in range(0,len(Hisseler)):
         Sell=False
         Signals = Tillson.tail(1)
         Signals = Signals.reset_index()
-        Buy = Signals.loc[0, 'Entry']
-        Sell = Signals.loc[0, 'Exit']
+        Buy = Signals.loc[0, 'Entry']==True and Signals.loc[1, 'Entry']==False
+        Sell = Signals.loc[0, 'Exit']== True and Signals.loc[1, 'Exit']== False 
 
         L1=[Hisseler[i],round(Stats.loc['Win Rate [%]'],2),round(Stats.loc['Sharpe Ratio'],2),
             round(Stats.loc['Avg Winning Trade [%]'],2),str(Stats.loc['Avg Winning Trade Duration']),
@@ -86,5 +85,5 @@ for i in range(0,len(Hisseler)):
     except:
         pass
 
-df_True = df_signals[(df_signals['Entry'] == 'True')]
+df_True = df_signals[(df_signals['Giriş Sinyali'] == 'True') & (df_signals['Kazanma Oranı[%]'] > 55.0)]
 print(df_True)
