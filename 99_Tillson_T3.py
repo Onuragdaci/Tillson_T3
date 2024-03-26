@@ -61,7 +61,7 @@ for i in range(0,len(Hisseler)):
         v = 0.7
         data=yf.download(Hisseler[i]+'.IS',period='2y', interval='1d',progress=False)
         Tillson=TillsonT3(data,Length=L,vf=v)
-        psettings = {'init_cash': 100,'freq': 'H', 'direction': 'longonly', 'accumulate': True}
+        psettings = {'init_cash': 100,'freq': 'D', 'direction': 'longonly', 'accumulate': True}
         pf = vbt.Portfolio.from_signals(Tillson['Adj Close'], entries=Tillson['Entry'], exits=Tillson['Exit'],**psettings)
         Stats=pf.stats()
 
