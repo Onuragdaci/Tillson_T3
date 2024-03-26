@@ -69,8 +69,8 @@ for i in range(0,len(Hisseler)):
         Sell=False
         Signals = Tillson.tail(2)
         Signals = Signals.reset_index()
-        Buy = Signals.loc[0, 'Entry']==True and Signals.loc[1, 'Entry']==False
-        Sell = Signals.loc[0, 'Exit']== True and Signals.loc[1, 'Exit']== False 
+        Buy = Signals.loc[0, 'Entry']==False and Signals.loc[1, 'Entry']==True
+        Sell = Signals.loc[0, 'Exit']==False and Signals.loc[1, 'Exit']== True
 
         L1=[Hisseler[i],round(Stats.loc['Win Rate [%]'],2),round(Stats.loc['Sharpe Ratio'],2),
             round(Stats.loc['Avg Winning Trade [%]'],2),str(Stats.loc['Avg Winning Trade Duration']),
